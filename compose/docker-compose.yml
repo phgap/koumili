@@ -1,0 +1,60 @@
+version: "3"
+services:
+
+  mongo:
+    image: mongo:4.1.6
+    volumes:
+      - ../mongo/data:/data/db
+    ports:
+      - "27017:27017"
+
+  # mongo-rest:
+  #   build: ../mongo-rest
+  #   volumes:
+  #     - ../mongo-rest/src:/restapi/src
+  #   depends_on:
+  #     - mongo
+  #   ports:
+  #     - "10001:10001"
+  #   links:
+  #     - mongo
+  
+  # grade:
+  #   build: ../grade
+  #   volumes:
+  #     - ../grade/xls:/grade/xls
+  #     - ../grade/src:/grade/src
+  #   depends_on:
+  #     - mongo-rest
+  #   ports:
+  #     - "10002:10002"
+  #   links:
+  #     - mongo-rest
+  
+  # apollo:
+  #   build: ../apollo
+  #   volumes:
+  #     - ../apollo/src:/apollo/src
+  #   depends_on:
+  #     - mongo-rest
+  #     - grade
+  #   ports:
+  #     - "4000:4000"
+  #   links:
+  #     - grade
+  #     - mongo-rest
+  app:
+    build: ../buyer/app
+    # 配置卷映射之后，将本地磁盘与docker内部的路径建立了映射关系
+    # 当本地文件改变后，docker内的文件也会改变，这样可以在开发时动态刷新页面
+    volumes:
+      - ../buyer/app/src:/app/src
+    networks:
+      - frontend
+    # depends_on:
+    #   - apollo
+    ports:
+      - "8080:8080"
+    # links:
+    #   - apollo
+    

@@ -1,0 +1,134 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: 寇米粒
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths 
+basePath: /
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  # /authentication:
+  #   # binds a127 app logic to a route
+  #   x-swagger-router-controller: authentication
+  #   get:
+  #     description: 获取用户认证状态
+  #     # used as the method name of the controller
+  #     operationId: user_auth
+  #     parameters:
+  #       - name: authentication
+  #         in: header
+  #         description: The authentication token of the user in cookie
+  #         required: true
+  #         type: string
+  #     responses:
+  #       "200":
+  #         description: OK
+  #         schema:
+  #           # a pointer to a definition
+  #           $ref: "#/definitions/AuthenticationResponse"
+  #       # responses may fall through to errors
+  #       default:
+  #         description: Error
+  #         schema:
+  #           $ref: "#/definitions/ErrorResponse"
+  
+  /users/login:
+    x-swagger-router-controller: users
+    post:
+      description: 用户登录
+      operationId: login
+      parameters:
+        - name: userInfo
+          in: body
+          description: 用户登录的用户名
+          required: true
+          schema:
+            $ref: "#/definitions/loginRequest"
+      responses:
+        200:
+          description: OK
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/LoginResponse"
+  /goods/home/index:
+    x-swagger-router-controller: goods
+    get:
+      description: 获取商品信息
+      operationId: homeIndex
+      responses:
+        200:
+          description: OK
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/GoodsResponse"
+
+
+
+
+# complex objects have schema definitions
+definitions:
+  # AuthenticationResponse:
+  #   required:
+  #     - result
+  #   properties:
+  #     result:
+  #       type: boolean
+  # ErrorResponse:
+  #   required:
+  #     - message
+  #   properties:
+  #     message:
+  #       type: string
+  LoginResponse:
+    required:
+      - result
+      - token
+    properties:
+      result:
+        type: boolean
+      token:
+        type: string
+  loginRequest:
+    required:
+      - username
+      - password
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+  GoodsResponse:
+    required:
+      - data
+    properties:
+      data:
+        type: array
+        items:
+          type: object
+          required:
+          - id
+          - img
+          properties:
+            id:
+              type: number
+            img:
+              type: string
+            price:
+              type: string
+            name:
+              type: string
+
+
+
+      

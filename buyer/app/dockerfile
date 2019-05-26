@@ -1,0 +1,15 @@
+FROM node
+
+RUN mkdir /app
+
+# Changing the volume from within the Dockerfile: 
+# If any build steps change the data within the volume after it has been declared, 
+# those changes will be discarded.
+# VOLUME /apollo
+
+WORKDIR /app
+COPY . /app
+RUN npm config set registry="https://registry.npm.taobao.org/"
+RUN npm install
+EXPOSE 8080
+CMD ["npm", "start"]

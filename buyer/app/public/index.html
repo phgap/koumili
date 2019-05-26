@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        !function (global, doc) {
+            var html = doc.documentElement;
+            !function setFontSize() {
+                var fontSize = html.clientWidth / 3.75;
+                html.style.fontSize = fontSize + 'px'
+            }()
+            !function pageShow() {
+                doc.body ?
+                    doc.body.style.fontSize = '16px' :
+                    doc.addEventListener('DOMContentLoaded', pageShow)
+            }()
+        }(window, document)
+    </script>
+
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+</html>

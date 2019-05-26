@@ -1,0 +1,19 @@
+.carousel {
+  overflow: hidden;
+  * {
+    /*避免控制台错误：react-dom.development.js:1544 [Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive*/
+    touch-action: pan-y;
+  }
+  .slider-list {
+    list-style: none;
+    position: relative;
+    transition-property: left;
+    transition-duration: .5s;
+    .slide {
+      text-align: center;
+      // float: left;
+      position: absolute;
+      left: 0;
+    }
+  }
+}

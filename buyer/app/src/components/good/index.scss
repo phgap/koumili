@@ -1,0 +1,42 @@
+@import "../../util/scss/rem";
+
+.good {
+  width: px2rem(165px);
+  height: px2rem(220px);
+  border-radius: px2rem(6px);
+  float: left;
+  margin-left: px2rem(13px);
+  margin-top: px2rem(13px);
+  background-position: 0 top;
+  background-size: contain;
+  position: relative;
+  .info {
+    $height: px2rem(50px);
+    width: px2rem(165px);
+    height: $height;
+    border-radius: 0 0 px2rem(6px) px2rem(6px);
+    background-color: rgba(244,244,244,0.5);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    
+    .name {
+      color: #5A5A5A;
+      font-size: px2rem(14px);
+      line-height: $height;
+      font-family: '.PingFangSC-Regular';
+      padding-left: px2rem(10px);
+    }
+    .price {
+      color: #FF0F0F;
+      font-size: 24px;
+      float: right;
+      line-height: $height;
+      padding-right: px2rem(10px);
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+@import "../../util/scss/rem";
+
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .search {
+    height: px2rem(32px);
+    line-height: px2rem(32px);
+    background: #5a5a5a;
+  }
+  .nav {
+    $height: px2rem(27px);
+    display: flex;
+    margin-top: px2rem(32px);
+    width: 100%;
+    height: $height;
+    padding-bottom: 1px;
+    .item {
+      flex-grow: 1;
+      text-align: center;
+      line-height: $height;
+      a {
+        font-family: ".PingFangSC-Regular";
+        font-size: 14px;
+        color: #5a5a5a;
+        padding: 0 3px 1px 3px;
+        &.current {
+          border-bottom: 2px solid #979797;
+        }
+      }
+    }
+  }
+  .list {
+    flex: 1;
+    overflow: auto;
+  }
+}

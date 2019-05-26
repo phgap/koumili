@@ -1,0 +1,15 @@
+@import "../../util/scss/rem";
+
+.tab-bar {
+  width: px2rem(375px);
+  height: px2rem(49px);
+  background-color: rgba(250, 250, 250, 0.9);
+  display: flex;
+  font-family: ".PingFangSC-Regular";
+  font-size: 10px;
+  color: #5a5a5a;
+  letter-spacing: 0;
+  &.hidden {
+    display: none;
+  }
+}

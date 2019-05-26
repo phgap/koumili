@@ -1,0 +1,5 @@
+node_modules
+build
+koumili.code-workspace
+mysql_pw.txt
+mongo/data

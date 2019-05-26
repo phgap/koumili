@@ -1,0 +1,27 @@
+@import "../../../util/scss/rem";
+
+.tab-bar-item {
+  $height: px2rem(49px);
+  flex-grow: 1;
+  text-align: center;
+  cursor: pointer;
+  a {
+    font-family: "PingFangSC-Regular";
+    font-size: 10px;
+    color: #5A5A5A;
+  }
+  p,
+  span {
+    height: $height/2;
+    line-height: $height/2;
+  }
+  p {
+    font-size: px2rem(25px);
+    box-sizing: border-box;
+    padding-top: px2rem(5px);
+  }
+  span {
+    display: block;
+    vertical-align:top;
+  }
+}

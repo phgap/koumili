@@ -1,0 +1,78 @@
+@import "../../util/scss/rem";
+
+.login {
+  $top: 60px;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+  .hat {
+    width: px2rem(100px);
+    height: px2rem(100px);
+    position: relative;
+    top: px2rem($top);
+    margin: 0 auto;
+    background: grey;
+  }
+  .form {
+    $width: 220px;
+    width: px2rem($width);
+    position: relative;
+    margin: 0 auto;
+    top: px2rem($top + 120px);
+
+    .username,
+    .password {
+      width: px2rem($width);
+      height: px2rem(20px);
+      border-bottom: 1px solid #5a5a5a;
+      display: flex;
+      span {
+        // width: px2rem(50px);
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #5a5a5a;
+      }
+      input {
+        flex: 1;
+        padding-left: 5px;
+        box-sizing: border-box;
+      }
+    }
+
+    .password {
+      margin-top: px2rem(30px);
+    }
+
+    .submit {
+      width: 100%;
+      height: px2rem(44px);
+      line-height: px2rem(44px);
+      opacity: 0.55;
+      background: #384355;
+      margin-top: px2rem(50px);
+      font-family: PingFangSC-Regular;
+      font-size: 16px;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .forget,
+    .register {
+      font-family: PingFangSC-Regular;
+      font-size: 12px;
+      color: #5a5a5a;
+    }
+
+    .other {
+      margin-top: 32px;
+
+      .forget {
+        float: left;
+      }
+
+      .register {
+        float: right;
+      }
+    }
+  }
+}
