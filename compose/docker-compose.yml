@@ -1,6 +1,7 @@
 version: "3"
-services:
 
+
+services:
   mongo:
     image: mongo:4.1.6
     volumes:
@@ -43,18 +44,27 @@ services:
   #   links:
   #     - grade
   #     - mongo-rest
-  app:
+  buyer-server:
+    build: ../buyer/server
+    # 配置卷映射之后，将本地磁盘与docker内部的路径建立了映射关系
+    # 当本地文件改变后，docker内的文件也会改变，这样可以在开发时动态刷新页面
+    volumes:
+      - ../buyer/server/api:/server/api
+    depends_on:
+      - mongo
+    ports:
+      - "10010:10010"
+    links:
+      - mongo
+  buyer-app:
     build: ../buyer/app
     # 配置卷映射之后，将本地磁盘与docker内部的路径建立了映射关系
     # 当本地文件改变后，docker内的文件也会改变，这样可以在开发时动态刷新页面
     volumes:
       - ../buyer/app/src:/app/src
-    networks:
-      - frontend
-    # depends_on:
-    #   - apollo
+      - ../buyer/app/assets:/app/assets
     ports:
       - "8080:8080"
-    # links:
-    #   - apollo
+    links:
+      - buyer-server
     

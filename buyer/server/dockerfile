@@ -1,0 +1,15 @@
+FROM node
+
+RUN mkdir /server
+
+# Changing the volume from within the Dockerfile: 
+# If any build steps change the data within the volume after it has been declared, 
+# those changes will be discarded.
+# VOLUME /server
+
+WORKDIR /server
+COPY . /server
+RUN npm config set registry="https://registry.npm.taobao.org/"
+RUN npm install
+EXPOSE 10010
+CMD ["npm", "start"]
