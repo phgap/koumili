@@ -11,6 +11,7 @@ module.exports = smart(base, {
     mode: "development",
     devServer: {
         historyApiFallback: true,
+        host: '0.0.0.0'
     },
     devtool: 'eval',
     plugins: [
