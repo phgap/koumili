@@ -3,3 +3,4 @@ build
 koumili.code-workspace
 mysql_pw.txt
 mongo/data
+.DS_Store
