@@ -15,6 +15,11 @@ class Login extends Component {
         this.handleUserChange = this.handleUserChange.bind(this)
         this.handlePasswordChange = this.handlePasswordChange.bind(this)
     }
+    componentDidMount() {
+        let { dispatch } = this.props
+        dispatch(setTabBarVisibility(false))
+
+    }
     handleUserChange(evt) {
         this.setState({ username: evt.target.value })
     }
@@ -27,7 +32,6 @@ class Login extends Component {
         let { from } = this.props.location.state || { from: { pathname: "/" } };
         let { history, dispatch } = this.props
 
-        dispatch(setTabBarVisibility(false))
         return (
             <div className="login">
                 <div className="hat"></div>

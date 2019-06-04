@@ -15,10 +15,10 @@ class HomeIndex extends React.Component {
         let { dispatch } = this.props;
         dispatch(fetchGoods('home/index'))
         dispatch(fetchSlides())
+        dispatch(setTabBarVisibility(true))
     }
     render() {
         let { dispatch } = this.props;
-        dispatch(setTabBarVisibility(true))
         return (
             <div className="home-index">
                 <div className="slider">
